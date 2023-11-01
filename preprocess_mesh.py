@@ -3,8 +3,13 @@ import pymeshfix
 import numpy as np 
 import os 
 import vedo # to voxelise 
+import sys
 
 def to_voxels(path): 
+    '''
+    This code takes the input .ply file, converts it to voxels using vedo, and saves the output 
+    To the same folder as the cell originated from 
+    '''
     if not os.path.exists(path + '_npy'): # dont overwrite 
         pointcloud = o3d.io.read_point_cloud(path)
         if pointcloud.has_points(): 
@@ -31,18 +36,11 @@ def make_watertight(path):
     # Save the mesh
     meshfix.save(path)
 
+path_to_limeseg_folder = sys.argv[1]
 
-import sys
-path_to_dir = sys.argv[1]
+cell_list = next(os.walk(path_to_limeseg_folder))[1]  
 
-print(path_to_dir)
-
-print(os.listdir(path_to_dir))
-
-
-cell_list = next(os.walk(path_to_dir))[1]  
-
-
+# Do this for all the cells 
 for idx, cell in enumerate(cell_list): 
     path = path_to_dir + cell + '/T_1.ply'
     make_watertight(path)
