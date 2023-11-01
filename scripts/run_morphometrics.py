@@ -86,6 +86,7 @@ def calculate_metrics(df):
     df['ap'] = (df['bbox-4'] - df['bbox-1']) 
     df['dv'] = (df['bbox-3'] - df['bbox-0'])
     df['ml'] = (df['bbox-5'] - df['bbox-2'])
+    
     # calculate ratios 
     df['AP:DV'] = df['ap'] / df['dv']
     df['AP:ML'] = df['ap'] / df['ml']
@@ -108,6 +109,7 @@ def calculate_metrics(df):
 def do_all_metrics(mask, metrics, surf):
     df = get_measurements(mask, metrics, surf)
     # surf = get_surface_area(mask)
+
     # read the surface area from LimeSeg as it's faster 
     df['surface area'] = surf 
     df = calculate_metrics(df)
