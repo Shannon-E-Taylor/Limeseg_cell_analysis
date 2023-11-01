@@ -1,6 +1,7 @@
 name: process_limeseg_env
 channels:
   - conda-forge
+  - open3d-admin
 dependencies:
   - python=3.7 
   - vedo
@@ -10,5 +11,4 @@ dependencies:
   - scikit-image
   - pandas
   - matplotlib
-  - scikit-scan
-  - scikit-morphology
+  - skan

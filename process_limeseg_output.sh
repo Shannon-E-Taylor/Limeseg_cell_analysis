@@ -4,38 +4,29 @@
 # conda init bash
 source activate napari-env
 
-# path_to_limeseg_folder="../output/cell_segs_limeseg/isotropic_embryo_1_v2/"
-path_to_limeseg_folder="../output/cell_segs_limeseg/image_25/"
-# img_path="../output/Experiment-347_s1.ome-1_8bit_gauss2simga_isotropic.tif"
-img_path="../data/Image25.tif"
-path_out="../output/cell_segs_as_tiff/isotropic_embryo_1.npz"
-path_out="../output/Image_25.npz"
-twod_seg="../output/2d_segs/isotropic_image_1a.npy"
+
+# File paths  
+path_to_output_image="demo_data/demo_label_image.tif" # path to save the new label image to 
+path_to_input_image="demo_data/microscopy_data.tif" # path to the original image you segmented, to read image dimensions from  
+path_to_limeseg_folder="demo_data/limeseg_output/" # path to the folder where you saved your limeseg data 
+path_to_morphometrics_output="demo_data/demo_morphometrics.csv"
+
+# Unused files (for now)
+# two_d_segmentation=""
+# path_to_spharm_output=""
 
 echo 'its running'
 
-# close meshes, and convert to voxels 
-# python preprocess_mesh.py $path_to_limeseg_folder
+# Run script to preprocess the cell meshes, 
+# voxelize each cell 
+# and create a label image containing each cell for further analysis 
+python scripts/voxelize_cell.py $path_to_output_image $path_to_input_image $path_to_limeseg_folder
 
-# # get all segmentations in one file 
+# Now run the morphometrics script 
+python scripts/run_morphometrics.py $path_to_limeseg_folder $path_to_morphometrics_output
 
-# python convert_ply_to_voxel_1.0.py $path_out $img_path $path_to_limeseg_folder
+# TODO 
+# generate agreement scores for each cell 
 
-# get agreement scores for each cell 
-# python assess_accuracy_2.py $twod_seg $path_out "isotropic_embryo1"
+# and do SPHARM 
 
-# run SPHARM 
-# calculate_spherical_harmonics.py 
-
-# run morphometrics pipeline 
-# let's leave this until I have fixed skeletonization 
-# python run_morphometrics_v2.py "image_25"
-# python run_morphometrics_v2.py "image_25_core_cells"
-
-# now we should have 
-# 1. agreement scores for each cell 
-# 2. spherical harmonics for each cell 
-# 3. morhometric measurements for each cell 
-# and can proceed to analysis! 
-
-python calculate_aligned_spherical_harmonics.py "image_25"
