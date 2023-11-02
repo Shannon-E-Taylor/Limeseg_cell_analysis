@@ -1,0 +1,34 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                  count
+-----------------  -------
+run_morphometrics        1
+total                    1
+
+Select jobs to execute...
+
+[Wed Nov  1 20:24:07 2023]
+rule run_morphometrics:
+    input: demo_data/limeseg_output
+    output: demo_data/demo_morphometrics.csv
+    jobid: 0
+    reason: Missing output files: demo_data/demo_morphometrics.csv
+    resources: tmpdir=/tmp
+
+[Wed Nov  1 20:24:07 2023]
+Error in rule run_morphometrics:
+    jobid: 0
+    input: demo_data/limeseg_output
+    output: demo_data/demo_morphometrics.csv
+
+RuleException:
+NameError in file /mnt/c/Users/shil5659/OneDrive - Nexus365/Documents/GitHub/Limeseg_cell_analysis/Snakefile, line 19:
+The name 'limeseg_folder' is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}
+  File "/mnt/c/Users/shil5659/OneDrive - Nexus365/Documents/GitHub/Limeseg_cell_analysis/Snakefile", line 19, in __rule_run_morphometrics
+  File "/home/shannon/anaconda3/envs/napari-env/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-11-01T202407.633977.snakemake.log

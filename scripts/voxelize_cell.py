@@ -37,7 +37,7 @@ def make_watertight(path):
     meshfix.save(path)
 
 # get the file paths from the command line 
-path_to_output_image = sys.argv[1] # path to save the new label image to 
+outfile = sys.argv[1] # path to save the new label image to 
 path_to_input_image = sys.argv[2] # path to the original image you segmented, to read image dimensions from  
 path_to_limeseg_folder = sys.argv[3] # path to the folder where you saved your limeseg data 
 
@@ -50,5 +50,12 @@ for cell in cell_list:
     make_watertight(path)
     to_voxels(path)
 
-print("Finished voxelising images") 
+# Define the content you want to write to the file
+file_content = "Cells are voxelized and ready for analysis."
+
+# Open the file for writing
+with open(outfile, "w") as file:
+    # Write the content to the file
+    file.write(file_content)
+
 

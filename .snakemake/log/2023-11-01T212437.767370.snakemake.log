@@ -1,0 +1,8 @@
+Building DAG of jobs...
+MissingInputException in rule voxelize_cells in file C:\Users\shil5659\OneDrive - Nexus365\Documents\GitHub\Limeseg_cell_analysis\Snakefile, line 12:
+Missing input files for rule voxelize_cells:
+    output: demo_data/demo_limeseg/cells_are_voxelized.txt
+    wildcards: sample=demo_data/demo
+    affected files:
+        demo_data/demo_data/demo_microscopy.tif
+        demo_data/demo_data/demo_limeseg

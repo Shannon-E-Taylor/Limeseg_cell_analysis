@@ -16,7 +16,7 @@ path_to_limeseg_folder = sys.argv[3] # path to the folder where you saved your l
 cell_list = os.listdir(path_to_limeseg_folder)
 
 # generate a template image of the same dimensions as the original image 
-segmented_image = imread(path_to_input_image).astype(np.int) * 0 
+segmented_image = imread(path_to_input_image).astype(int) * 0 
 
 for cell in cell_list: 
     path = path_to_limeseg_folder + '/' + cell + '/T_1.ply'

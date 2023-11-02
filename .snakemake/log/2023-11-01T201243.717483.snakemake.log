@@ -1,0 +1,32 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+voxelize_cells        1
+total                 1
+
+Select jobs to execute...
+
+[Wed Nov  1 20:12:43 2023]
+rule voxelize_cells:
+    input: demo_data/microscopy_data.tif, demo_data/limeseg_output
+    jobid: 0
+    reason: Rules with a run or shell declaration but no output are always executed.
+    resources: tmpdir=/tmp
+
+[Wed Nov  1 20:12:46 2023]
+Error in rule voxelize_cells:
+    jobid: 0
+    input: demo_data/microscopy_data.tif, demo_data/limeseg_output
+
+RuleException:
+CalledProcessError in file /mnt/c/Users/shil5659/OneDrive - Nexus365/Documents/GitHub/Limeseg_cell_analysis/Snakefile, line 7:
+Command 'set -euo pipefail;  /home/shannon/anaconda3/envs/napari-env/bin/python3.8 '/mnt/c/Users/shil5659/OneDrive - Nexus365/Documents/GitHub/Limeseg_cell_analysis/.snakemake/scripts/tmpalxcimsh.voxelize_cell.py'' returned non-zero exit status 1.
+  File "/mnt/c/Users/shil5659/OneDrive - Nexus365/Documents/GitHub/Limeseg_cell_analysis/Snakefile", line 7, in __rule_voxelize_cells
+  File "/home/shannon/anaconda3/envs/napari-env/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-11-01T201243.717483.snakemake.log

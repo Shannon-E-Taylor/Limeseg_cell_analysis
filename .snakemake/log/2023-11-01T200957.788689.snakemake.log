@@ -1,0 +1,3 @@
+TypeError in file /mnt/c/Users/shil5659/OneDrive - Nexus365/Documents/GitHub/Limeseg_cell_analysis/Snakefile, line 12:
+script() takes 2 positional arguments but 3 were given
+  File "/mnt/c/Users/shil5659/OneDrive - Nexus365/Documents/GitHub/Limeseg_cell_analysis/Snakefile", line 12, in <module>

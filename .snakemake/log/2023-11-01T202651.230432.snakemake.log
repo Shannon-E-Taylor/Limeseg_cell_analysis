@@ -1,0 +1,24 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                  count
+-----------------  -------
+run_morphometrics        1
+total                    1
+
+Select jobs to execute...
+
+[Wed Nov  1 20:26:51 2023]
+rule run_morphometrics:
+    input: demo_data/limeseg_output
+    output: demo_data/demo_morphometrics.csv
+    jobid: 0
+    reason: Missing output files: demo_data/demo_morphometrics.csv
+    resources: tmpdir=/tmp
+
+[Wed Nov  1 20:26:56 2023]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: .snakemake/log/2023-11-01T202651.230432.snakemake.log

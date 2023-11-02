@@ -1,0 +1,36 @@
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+generate_label_image        1
+total                       2
+
+Select jobs to execute...
+
+[Wed Nov  1 21:05:46 2023]
+rule generate_label_image:
+    input: demo_data/microscopy_data.tif, demo_data/limeseg_output
+    output: demo_data/demo_label_image.tif.npz
+    jobid: 2
+    reason: Missing output files: demo_data/demo_label_image.tif.npz
+    resources: tmpdir=C:\Users\shil5659\AppData\Local\Temp
+
+[Wed Nov  1 21:06:06 2023]
+Finished job 2.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Wed Nov  1 21:06:06 2023]
+localrule all:
+    input: demo_data/demo_morphometrics.csv, demo_data/demo_label_image.tif.npz
+    jobid: 0
+    reason: Input files updated by another job: demo_data/demo_label_image.tif.npz
+    resources: tmpdir=C:\Users\shil5659\AppData\Local\Temp
+
+[Wed Nov  1 21:06:06 2023]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: .snakemake\log\2023-11-01T210546.696117.snakemake.log

@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in rule all in file C:\Users\shil5659\OneDrive - Nexus365\Documents\GitHub\Limeseg_cell_analysis\Snakefile, line 5:
+Missing input files for rule all:
+    affected files:
+        demo_data/demo_morphometrics.csvdemo_data/demo_label_image.tif.npz
